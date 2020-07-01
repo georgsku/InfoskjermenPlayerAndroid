@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="nb">
+	<head>
+	  	<title>Loading...</title>
+		<style type="text/css">
+			body { font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;}	
+			.bg { position:absolute; top:0; bottom:0; left:0; right:0; margin:0px; padding:0px; background:#000 url(splash-screen@2x.png) no-repeat center ; background-size:cover;}
+
+			main { height: 100%; margin: 0px; width: 100%; position: relative; overflow: auto; }	
+			main .center { position: absolute; top: 50%; left: 35%; right: 35%; color: white; padding: 0px; transform: translateY(-50%); overflow: auto;}
+			main .center.text { top:56%; text-align:center; }
+			main .center img {opacity:0.3;}
+			@keyframes flickerAnimation {
+			  0%   { opacity:0.4; }
+			  50%  { opacity:0.1; }
+			  100% { opacity:0.4; }
+			}
+			
+			@-webkit-keyframes flickerAnimation{
+			  0%   { opacity:0.4; }
+			  50%  { opacity:0.1; }
+			  100% { opacity:0.4; }
+			}
+			
+			.animate-flicker {
+				-webkit-animation: flickerAnimation 2.5s infinite;
+				animation: flickerAnimation 2.5s infinite;
+			}
+		</style>
+		<script>
+			function setMessage(message){
+				document.getElementById("message").innerHTML = message;
+			}
+			document.addEventListener("DOMContentLoaded", function() {
+				setTimeout(function(){
+					setMessage("Loading...")
+				},3000)
+			});
+			
+		</script>
+	</head>
+	<body>
+		<div class="bg"></bg>
+			<main>
+			  <div class="center text animate-flicker" id="message"> </div>
+			  <div class="center">
+				  <img src="infoskjermen.svg" style="opacity:0.3;">
+				  <!--<img src="pintomind.svg" style="opacity:0.3;">-->
+			  </div>
+			</main>
+	</body>
+</html>
